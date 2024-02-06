@@ -13,7 +13,7 @@ const commentValidation = (method) => {
             return [param("githubUserId").isString().withMessage("Invalid githubUserId")]; 
 
         case "getCommentsByTask":
-            return [param("taskId").isString().withMessage("Invalid taskId")];
+            return [param("taskId").isMongoId().withMessage("Invalid taskId")];
             
         case "createComment":
             return [
