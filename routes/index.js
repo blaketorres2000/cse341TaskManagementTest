@@ -54,6 +54,6 @@ router.use("/users", isAuthenticated, require("./userRoutes"));
 /**********************************************
 * Route to use for all Comment Management
 **********************************************/
-router.use("/comments", isAuthenticated, require("./commentsRoutes"));
+router.use("/comments", isAuthenticated, require("./commentRoutes"));
 
 module.exports = router;

@@ -1,13 +1,13 @@
 const User = require("../models/userModels.js");
-const Comment = require("../models/commentsModels.js");
+const Comment = require("../models/commentModels.js");
 const mongoose = require("mongoose");
 
-const commentsController = {};
+const commentController = {};
 
 /*********************************************************
 * Function to get a list of all comments from the database.
 *********************************************************/
-commentsController.getAllComments = async function (req, res) {
+commentController.getAllComments = async function (req, res) {
     //#swagger.tags = ['Comment Management']
     //#swagger.description = ['This is to get all comments from the database.']
 
@@ -23,7 +23,7 @@ commentsController.getAllComments = async function (req, res) {
 /*********************************************************
  * Function to get a comment in the database by object _id.
  * *******************************************************/
-commentsController.getCommentById = async function (req, res) {
+commentController.getCommentById = async function (req, res) {
     //#swagger.tags = ['Comment Management']
     //#swagger.description = ['This is to get a single comment by id from the database.']
 
@@ -45,7 +45,7 @@ commentsController.getCommentById = async function (req, res) {
 /*********************************************************
  * Function to get all comments from a single user.
  * *******************************************************/
-commentsController.getCommentsByUser = async function (req, res) {
+commentController.getCommentsByUser = async function (req, res) {
     //#swagger.tags = ['Comment Management']
     //#swagger.description = ['This is to get all comments by a specific user from the database.']
 
@@ -67,7 +67,7 @@ commentsController.getCommentsByUser = async function (req, res) {
 /*********************************************************
  * Function to get all comments on a specific task.
  * *******************************************************/
-commentsController.getCommentsByTask = async function (req, res) {
+commentController.getCommentsByTask = async function (req, res) {
     //#swagger.tags = ['Comment Management']
     //#swagger.description = ['This is to get all comments on a specific task from the database.']
 
@@ -89,7 +89,7 @@ commentsController.getCommentsByTask = async function (req, res) {
 /*********************************************************
  * Function to create a new comment in the database.
  * *******************************************************/
-commentsController.createComment = async function (req, res) {
+commentController.createComment = async function (req, res) {
     //#swagger.tags = ['Comment Management']
     //#swagger.description = ['This is to create a new comment in the database.']
 
@@ -107,7 +107,7 @@ commentsController.createComment = async function (req, res) {
 /*********************************************************
  * Function to update a comment in the database.
  * *******************************************************/
-commentsController.updateComment = async function (req, res) {
+commentController.updateComment = async function (req, res) {
     //#swagger.tags = ['Comment Management']
     //#swagger.description = ['This is to update a comment by _id in the database.']
 
@@ -125,7 +125,7 @@ commentsController.updateComment = async function (req, res) {
 /*********************************************************
  * Function to delete a comment from the database.
  * *******************************************************/
-commentsController.deleteComment = async function (req, res) {
+commentController.deleteComment = async function (req, res) {
     //#swagger.tags = ['Comment Management']
     //#swagger.description = ['This is to delete a comment by _id from the database.']
 
@@ -140,4 +140,4 @@ commentsController.deleteComment = async function (req, res) {
     }
 };
 
-module.exports = commentsController;
+module.exports = commentController;
