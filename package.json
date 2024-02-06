@@ -1,0 +1,33 @@
+{
+    "name": "team_10_task_management_api",
+    "version": "1.0.0",
+    "description": "Final project-Task Management API for CSE 341. This project is a RESTful API that allows users to create, read, update, and delete items from a database.",
+    "main": "node server.js",
+    "scripts": {
+        "start": "nodemon server.js",
+        "gen-swagger": "node swagger.js"
+    },
+    "author": "Team 10",
+    "license": "ISC",
+    "dependencies": {
+        "autogen": "^0.0.1",
+        "bcrypt": "^5.1.1",
+        "body-parser": "^1.20.2",
+        "cors": "^2.8.5",
+        "dotenv": "^16.3.2",
+        "express": "^4.18.2",
+        "express-session": "^1.18.0",
+        "express-validator": "^7.0.1",
+        "moment": "^2.30.1",
+        "mongodb": "^6.3.0",
+        "mongoose": "^5.13.22",
+        "node": "^21.6.0",
+        "nodemon": "^3.0.3",
+        "passport": "^0.7.0",
+        "passport-github2": "^0.1.12",
+        "swagger": "^0.0.1",
+        "swagger-autogen": "^2.23.7",
+        "swagger-jsdoc": "^3.2.2",
+        "swagger-ui-express": "^5.0.0"
+    }
+}
