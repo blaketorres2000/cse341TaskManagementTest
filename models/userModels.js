@@ -29,6 +29,6 @@ userSchema.pre("save", async function (next) {
 });
 
 // Create the User model using the schema
-const User = mongoose.model("User", userSchema);
+const User = mongoose.model("users", userSchema);
 
 module.exports = User;
