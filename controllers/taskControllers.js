@@ -48,8 +48,8 @@ taskController.getTasksByCategory = async function (req, res) {
     //#swagger.description = ['This is to get all tasks by a specific category from the database.']
 
     try {
-        const taskCategory = req.params.category;
-        const tasks = await Task.find({ taskCategory: taskCategory });
+        const category = req.params.category;
+        const tasks = await Task.find({ category: category });
 
         if (tasks) {
             res.json(tasks);
@@ -66,21 +66,18 @@ taskController.getTasksByCategory = async function (req, res) {
  * Function to get all tasks by a specific user from the database.
  * *******************************************************/
 taskController.getTasksByUser = async function (req, res) {
-    //#swagger.tags = ['Task Management']
-    //#swagger.description = ['This is to get all tasks by a specific user from the database.']
-
     try {
-        const taskUser = req.params.user;
-        const tasks = await Task.find({ taskUser: taskUser });
+        const githubUserId = req.params.id;
+        const tasks = await Task.find({ githubUserId: githubUserId});
 
         if (tasks) {
             res.json(tasks);
         } else {
-            res.status(404).json({ error: "User not found." });
+            res.status(404).json({ error: "Tasks by user not found." });
         }
     } catch (error) {
-        console.error("Error fetching tasks by user:", error);
-        res.status(500).json({ error: "Internal Server Error." });
+            console.error("Error fetching user tasks:", error);
+            res.status(500).json({ error: "Internal Server Error." });
     }
 };
 
@@ -92,14 +89,16 @@ taskController.createTask = async function (req, res) {
     //#swagger.description = ['This is to create a new task in the database.']
 
     try {
-        const { taskName, taskDescription, taskCategory, taskDueDate, taskStatus } = req.body;
+        const { title, description, category, priorityLevel, status, dueDate, githubUserId } = req.body;
 
         const newTask = new Task({
-            taskName,
-            taskDescription,
-            taskCategory,
-            taskDueDate,
-            taskStatus,
+            title,
+            description,
+            category,
+            priorityLevel,
+            status,
+            dueDate,
+            githubUserId,
         });
 
         await newTask.save();
@@ -119,14 +118,16 @@ taskController.updateTask = async function (req, res) {
 
     try {
         const taskId = req.params.id;
-        const { taskName, taskDescription, taskCategory, taskDueDate, taskStatus } = req.body;
+        const { title, description, category, priorityLevel, status, dueDate, githubUserId } = req.body;
 
         updateFields = {
-            taskName,
-            taskDescription,
-            taskCategory,
-            taskDueDate,
-            taskStatus,
+            title,
+            description,
+            category,
+            priorityLevel,
+            status,
+            dueDate,
+            githubUserId,
         };
 
         const updatedTask = await Task.findOneAndUpdate({ _id: taskId }, updateFields, { new: true });

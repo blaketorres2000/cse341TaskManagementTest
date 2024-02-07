@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
  * **********************************************/
 const categorySchema = new mongoose.Schema({
     categoryName: { type: String, required: true },
-    description: { type: String },
+    categoryDescription: { type: String },
 });
 
 const Category = mongoose.model("categories", categorySchema);

@@ -1,4 +1,4 @@
-const Category = require('../models/categoryModel');
+const Category = require('../models/categoryModels');
 
 const categoryController = {};
 
@@ -86,7 +86,7 @@ categoryController.updateCategory = async function (req, res) {
         );
 
         if (updatedCategory) {
-            res.json(updatedCategory);
+            res.json({ message: 'Category updated successfully', category: updatedCategory });
         } else {
             res.status(404).json({ error: "Category not found." });
         }
@@ -108,7 +108,7 @@ categoryController.deleteCategory = async function (req, res) {
         const deletedCategory = await Category.findOneAndDelete({ _id: categoryId });
 
         if (deletedCategory) {
-            res.json(deletedCategory);
+            res.json('Category deleted successfully.');
         } else {
             res.status(404).json({ error: "Category not found." });
         }

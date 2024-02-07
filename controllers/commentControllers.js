@@ -94,8 +94,8 @@ commentController.createComment = async function (req, res) {
     //#swagger.description = ['This is to create a new comment in the database.']
 
     try {
-        const { comment, taskId, githubUserId } = req.body;
-        const newComment = new Comment({ comment, taskId, githubUserId });
+        const { comment, githubUserId } = req.body;
+        const newComment = new Comment({ comment, githubUserId });
         await newComment.save();
         res.status(201).json(newComment);
     } catch (error) {

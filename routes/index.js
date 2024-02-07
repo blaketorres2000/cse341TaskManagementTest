@@ -56,4 +56,14 @@ router.use("/users", isAuthenticated, require("./userRoutes"));
 **********************************************/
 router.use("/comments", isAuthenticated, require("./commentRoutes"));
 
+/**********************************************
+ * Route to use for all Task Management
+ * *********************************************/
+router.use("/tasks", isAuthenticated, require("./taskRoutes"));
+
+/**********************************************
+ * Route to use for all Category Management
+ * *********************************************/
+router.use("/categories", isAuthenticated, require("./categoryRoutes"));
+
 module.exports = router;

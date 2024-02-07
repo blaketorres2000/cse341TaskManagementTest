@@ -9,11 +9,11 @@ router.get("/", taskValidation('getAllTasks'), validateTask, taskControllers.get
 // Route to get a task by taskId
 router.get("/:id", taskValidation('getTaskById'), validateTask, taskControllers.getTaskById);
 
-// Route to get all tasks by a specific user
-router.get("/user/:id", taskValidation('getTasksByUser'), validateTask, taskControllers.getTasksByUser);
-
 // Route to get all tasks in a specific category
 router.get("/category/:id", taskValidation('getTasksByCategory'), validateTask, taskControllers.getTasksByCategory);
+
+// Route to get all tasks by a specific user
+router.get("/user/:id", taskValidation('getTasksByUser'), validateTask, taskControllers.getTasksByUser);
 
 // Route to create a new task
 router.post("/", taskValidation('createTask'), validateTask, taskControllers.createTask);
